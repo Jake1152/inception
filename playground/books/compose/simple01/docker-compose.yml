@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  wordpress000ex12:
+    depends_on:
+      - mysql000ex11
+    image: wordpress
+    networks:
+      - wordpress000net1
+    ports:
+      - 8085:80
+    restart: always
+    environment:
+      WORDPRESS_DB_HOST=mysql000ex11
+      WORDPRESS_DB_NAME=wordpress000db
+      WORDPRESS_DB_USER=wordpress000kun
+      WORDPRESS_DB_PASSWORD=wkunpass

@@ -1,0 +1,58 @@
+version: '3'
+
+services:
+  nginx:
+    container_name: c_nginx
+    build: ./requirements/nginx/
+    image: nginx
+    depends_on :
+      - wordpress
+    restart: always
+    ports:
+      - "443:443"
+    networks:
+      - inception_network
+    volumes:
+      - wp_volume:/var/www/
+  
+  wordpress:
+    container_name: c_wordpress
+    build: ./requirements/wordpress/
+    image: wordpress
+    depens_one:
+      - mariadb
+    restart: alwas
+    networks:
+      - inception_network
+    env_file:
+      - .env
+    volumes:
+      - wp_volume:/var/www/
+  
+  mariadb:
+    container_name: c_mariadb
+    build: ./requirements/mariadb/
+    image: mariadb
+    restart: always
+    networks:
+      - inception_network
+    env_file:
+      - .env
+    volumes:
+      - db_volume:/var/lib/mysql/
+
+networks:
+  inception_network:
+
+volumes:
+  db_volume:
+    driver_opts:
+      type: volume
+      o: 'bind'
+      device: '~/data/database'
+  
+  wp_volume:
+    driver_opts:
+      type: volume
+      o : 'bind'
+      device: '~/datra/wordpress'
