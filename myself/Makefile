@@ -2,7 +2,7 @@ all : up
 
 up :
 	sudo mkdir -p ${HOME}/data/wp ${HOME}/data/db
-	sudo echo "127.0.0.1	jim.42.fr"
+	sudo echo "127.0.0.1	jake.42.fr"
 	sudo docker-compose -f srcs/docker-compose.yml up --build
 
 down:

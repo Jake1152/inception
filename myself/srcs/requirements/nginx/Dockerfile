@@ -11,9 +11,9 @@ COPY tools/setup.sh /tmp
 RUN chmod +x /tmp/setup.sh
 
 RUN openssl req -newkey rsa:2048 -x509 -nodes \
-    -subj "/C=KR/ST=Seoul/L=Seoul/O=42seoul/OU=Im/CN=jim" \
-    -keyout /etc/nginx/ssl/jim.42.fr.key \
-    -out /etc/nginx/ssl/jim.42.fr.crt
+    -subj "/C=KR/ST=Seoul/L=Seoul/O=42seoul/OU=Im/CN=jake" \
+    -keyout /etc/nginx/ssl/jake.42.fr.key \
+    -out /etc/nginx/ssl/jake.42.fr.crt
 
 EXPOSE 443
 

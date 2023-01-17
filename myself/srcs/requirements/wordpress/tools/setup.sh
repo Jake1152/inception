@@ -1,4 +1,4 @@
-#!/bash/sh
+#!/bin/sh
 
 # nginx에서 접근할수 있도록 권한설정
 chown -R www-data:www-data /var/www/
@@ -37,7 +37,7 @@ if [ ! -f "/var/www/html/wordpress/wp-config.php" ]; then
         --user_pass=$WP_USER_PASSWORD && \
     
     # theme 설정, https://wordpress.org/themes/, 마음에 드는 테마 download하여 이름 추정
-    wp --allow-root --path=/var/www/html/wordpress
+    wp --allow-root --path=/var/www/html/wordpress \
         theme activate hello-elementor
 fi
 
