@@ -4,7 +4,7 @@ services:
   mariadb:
     container_name: mariadb
     build: ./requirements/mariadb
-    image: maraidb
+    image: mariadb
     restart: always
     networks:
       - inception
@@ -31,7 +31,7 @@ services:
       - .env
   wordpress:
     depends_on:
-      - maraidb
+      - mariadb
     container_name: wordpress
     build: ./requirements/wordpress
     image: wordpress
@@ -46,19 +46,19 @@ services:
       - .env
 
 networks:
-  inceoption:
+  inception:
     driver: bridge
 
 volumes:
   wordpress_vol:
     driver: local
-    dirver_opts:
-      type: name
-      device: /home/jim/data/wp
+    driver_opts:
+      type: none
+      device: /home/jake/data/wp
       o: bind
-    db_vol:
-      driver: local
-      driver_opts:
-        type: none
-        device: /home/jim/data/db
-        o: bind
+  db_vol:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/jake/data/db
+      o: bind

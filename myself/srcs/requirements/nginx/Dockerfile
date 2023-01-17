@@ -6,6 +6,8 @@ RUN apt-get update -y && \
     mkdir -p /var/www/html/wordpress /etc/nginx/ssl
 
 COPY conf/nginx.conf /etc/nginx/conf.d
+
+COPY tools/setup.sh /tmp
 RUN chmod +x /tmp/setup.sh
 
 RUN openssl req -newkey rsa:2048 -x509 -nodes \

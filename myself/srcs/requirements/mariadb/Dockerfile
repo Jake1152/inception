@@ -1,7 +1,7 @@
 FROM debian:buster
 
 RUN apt-get update -y && \
-    apt-get upgrade -u && \
+    apt-get upgrade -y && \
     apt-get install -y mariadb-server
 
 COPY ./tools/setup.sh /tmp/
