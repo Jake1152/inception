@@ -11,7 +11,7 @@ if [ ! -f "/var/www/html/wordpress/wp-config.php" ]; then
     # wp core다운
     wp --allow-root --path=/var/www/html/wordpress \
         core download \
-        --locale=ko_KR && \
+        --locale=en_US && \
 
     # wp config파일 만들기, wp-config.php 생성
     wp --allow-root --path=/var/www/html/wordpress \
@@ -38,7 +38,7 @@ if [ ! -f "/var/www/html/wordpress/wp-config.php" ]; then
     
     # theme 설정, https://wordpress.org/themes/, 마음에 드는 테마 download하여 이름 추정
     wp --allow-root --path=/var/www/html/wordpress \
-        theme activate hello-elementor
+        theme activate twentytwentythree
 fi
 
 echo "Wordpress Start!"
